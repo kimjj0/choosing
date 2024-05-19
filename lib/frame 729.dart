@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       builder: (context, child){
         return MaterialApp(
+          theme: ThemeData(fontFamily: "AppleSDGothicNeo"),
           home: Blocked_Users(),
         );
       },
@@ -32,19 +33,37 @@ class Blocked_Users extends StatelessWidget {
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back_ios),
-        title: Text("차단된 사용자", style: TextStyle(color: Color(0xff777777)),),
+        leadingWidth: MediaQuery.of(context).size.width,
+        leading: Container(
+          padding: EdgeInsets.fromLTRB(20, 15.5, 0, 15.5),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SvgPicture.asset('assets/icons/back_btn3.svg'),
+              SizedBox(width: 10,),
+              Text(
+                "차단된 사용자",
+                style: TextStyle(
+                    color: Color(0xff777777),
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
       body: Container(
         padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
         child: Column(
           children: [
-            SizedBox(height: 40,),
+            SizedBox(height: 16,),
+
             Row(
               children: [
                 Text(
                   "차단된 사용자 (0)",
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+                  style: TextStyle(color: Color(0xff333333),fontSize: 14, fontWeight: FontWeight.w500,),
                 ),
               ],
             ),
@@ -74,15 +93,15 @@ class Blocked_Users extends StatelessWidget {
                             children: [
                               Text(
                                 "홍길동",
-                                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400, fontFamily: "AppleSDGothicNeoB00"),
+                                style: TextStyle(color: Color(0xff333333),fontSize: 20, fontWeight: FontWeight.w700),
                               ),
                               Text(
                                 "asdf1234",
-                                style: TextStyle(color: Color(0xff777777),fontSize: 14, fontWeight: FontWeight.w400),
+                                style: TextStyle(color: Color(0xff777777),fontSize: 14, fontWeight: FontWeight.w500),
                               ),
                               Text(
                                 "2024.03.06 차단됨",
-                                style: TextStyle(color: Color(0xff999999), fontSize: 12, fontWeight: FontWeight.w400),
+                                style: TextStyle(color: Color(0xff777777), fontSize: 12, fontWeight: FontWeight.w500),
                               ),
                             ],
                           ),

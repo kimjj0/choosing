@@ -22,21 +22,38 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       builder: (context, child){
         return MaterialApp(
-          home: PushNotifications(),
+          theme: ThemeData(fontFamily: "AppleSDGothicNeo"),
+          home: Frame734(),
         );
       },
     );
   }
 }
 
-class PushNotifications extends StatelessWidget {
+class Frame734 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leadingWidth: 100,
-        leading: Icon(Icons.arrow_back_ios),
-        title: Text("푸시 알림 설정", style: TextStyle(color: Color(0xff777777), fontSize: 16, fontWeight: FontWeight.w400),),
+        leadingWidth: MediaQuery.of(context).size.width,
+        leading: Container(
+          padding: EdgeInsets.fromLTRB(20, 15.5, 0, 15.5),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SvgPicture.asset('assets/icons/back_btn3.svg'),
+              SizedBox(width: 10,),
+              Text(
+                "알림 설정",
+                style: TextStyle(
+                    color: Color(0xff777777),
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -45,11 +62,11 @@ class PushNotifications extends StatelessWidget {
           width: double.infinity,
           child: Column(
             children: [
-              SizedBox(height: 40),
+              SizedBox(height: 14),
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(14),
-                  color: Color(0xffFBFBFB),
+                  color: Color(0xffFAFAFA),
                 ),
                 padding: EdgeInsets.fromLTRB(15, 14, 12, 14),
                 child: Column(
@@ -61,7 +78,7 @@ class PushNotifications extends StatelessWidget {
                           Row(
                             children: [
                               SizedBox(width: 7),
-                              Text("알림 모두 끄기", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400)),
+                              Text("알림 모두 끄기", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Color(0xff555555))),
                             ],
                           ),
                           SvgPicture.asset(
@@ -73,21 +90,21 @@ class PushNotifications extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 6,),
+              SizedBox(height: 4,),
               Row(
                 children: [
                   SizedBox(width: 22,),
                   Text(
                     "choosing에서는 푸시 알림을 개별 제어할 수 있습니다.\n수신할 알림 유형을 선택해주세요.",
-                    style: TextStyle(color: Color(0xff777777))
+                    style: TextStyle(color: Color(0xff777777), fontWeight: FontWeight.w400, fontSize: 14)
                   ),
                 ],
               ),
-              SizedBox(height: 22,),
+              SizedBox(height: 20,),
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(14),
-                  color: Color(0xffFBFBFB),
+                  color: Color(0xffFAFAFA),
                 ),
                 padding: EdgeInsets.fromLTRB(15, 14, 12, 14),
                 child: Column(
@@ -99,7 +116,7 @@ class PushNotifications extends StatelessWidget {
                           Row(
                             children: [
                               SizedBox(width: 7),
-                              Text("오늘의 츄징 도착", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),),
+                              Text("오늘의 츄징 도착", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Color(0xff555555)),),
                             ],
                           ),
                           SvgPicture.asset(
@@ -111,7 +128,7 @@ class PushNotifications extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 6,),
+              SizedBox(height: 4,),
               Row(
                 children: [
                   SizedBox(width: 22,),
@@ -121,11 +138,11 @@ class PushNotifications extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 22,),
+              SizedBox(height: 20,),
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(14),
-                  color: Color(0xffFBFBFB),
+                  color: Color(0xffFAFAFA),
                 ),
                 padding: EdgeInsets.fromLTRB(15, 14, 12, 14),
                 child: Column(
@@ -137,7 +154,7 @@ class PushNotifications extends StatelessWidget {
                           Row(
                             children: [
                               SizedBox(width: 7),
-                              Text("팔로우 요청", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400)),
+                              Text("팔로우 요청", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Color(0xff555555))),
                             ],
                           ),
                           SvgPicture.asset(
@@ -149,7 +166,7 @@ class PushNotifications extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 6,),
+              SizedBox(height: 4,),
           Row(
             children: [
               SizedBox(width: 22,),
@@ -159,11 +176,11 @@ class PushNotifications extends StatelessWidget {
               ),
             ],
           ),
-              SizedBox(height: 22,),
+              SizedBox(height: 20,),
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(14),
-                  color: Color(0xffFBFBFB),
+                  color: Color(0xffFAFAFA),
                 ),
                 padding: EdgeInsets.fromLTRB(15, 14, 12, 14),
                 child: Column(
@@ -175,7 +192,7 @@ class PushNotifications extends StatelessWidget {
                           Row(
                             children: [
                               SizedBox(width: 7),
-                              Text("츄징 선택", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400)),
+                              Text("츄징 선택", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Color(0xff555555))),
                             ],
                           ),
                           SvgPicture.asset(
@@ -187,7 +204,7 @@ class PushNotifications extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 6,),
+              SizedBox(height: 4,),
               Row(
                 children: [
                   SizedBox(width: 22,),
@@ -197,11 +214,11 @@ class PushNotifications extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 22,),
+              SizedBox(height: 20,),
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(14),
-                  color: Color(0xffFBFBFB),
+                  color: Color(0xffFAFAFA),
                 ),
                 padding: EdgeInsets.fromLTRB(15, 14, 12, 14),
                 child: Column(
@@ -213,7 +230,7 @@ class PushNotifications extends StatelessWidget {
                           Row(
                             children: [
                               SizedBox(width: 7),
-                              Text("츄징 마감", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400)),
+                              Text("츄징 마감", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Color(0xff555555))),
                             ],
                           ),
                           SvgPicture.asset(
@@ -225,7 +242,7 @@ class PushNotifications extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 6,),
+              SizedBox(height: 4,),
               Row(
                 children: [
                   SizedBox(width: 22,),
@@ -235,11 +252,11 @@ class PushNotifications extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 22,),
+              SizedBox(height: 20,),
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(14),
-                  color: Color(0xffFBFBFB),
+                  color: Color(0xffFAFAFA),
                 ),
                 padding: EdgeInsets.fromLTRB(15, 14, 12, 14),
                 child: Column(
@@ -251,7 +268,7 @@ class PushNotifications extends StatelessWidget {
                           Row(
                             children: [
                               SizedBox(width: 7),
-                              Text("광고성 푸시", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400)),
+                              Text("광고성 푸시", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Color(0xff555555))),
                             ],
                           ),
                           SvgPicture.asset(
@@ -263,7 +280,7 @@ class PushNotifications extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 6,),
+              SizedBox(height: 4,),
               Row(
                 children: [
                   SizedBox(width: 22,),

@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       builder: (context, child){
         return MaterialApp(
+          theme: ThemeData(fontFamily: "AppleSDGothicNeo"),
           home: Settings(),
         );
       },
@@ -31,8 +32,25 @@ class Settings extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("설정"),
-        centerTitle: false,
+        leadingWidth: MediaQuery.of(context).size.width,
+        leading: Container(
+          padding: EdgeInsets.fromLTRB(20, 15.5, 0, 15.5),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SvgPicture.asset('assets/icons/back_btn3.svg'),
+              SizedBox(width: 10,),
+              Text(
+                "설정",
+                style: TextStyle(
+                    color: Color(0xff777777),
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -42,11 +60,11 @@ class Settings extends StatelessWidget {
           width: double.infinity,
           child: Column(
             children: [
-              SizedBox(height: 26,),
+              SizedBox(height: 16,),
               Container( //-------------프로필 시작
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(14),
-                  color: Color(0xffFBFBFB)
+                  color: Color(0xffFAFAFA)
                 ),
                 padding: EdgeInsets.fromLTRB(12, 18, 12, 24),
                 child: Row(
@@ -66,13 +84,13 @@ class Settings extends StatelessWidget {
                         SizedBox(width: 14,),
                         Column(
                           children: [
-                            Text("홍길동님", style: TextStyle(fontWeight: FontWeight.w400, fontSize: 24),),
-                            Text("jiho10101010"),
+                            Text("홍길동님", style: TextStyle(fontWeight: FontWeight.w700, fontSize: 24, color: Color(0xff222222)),),
+                            Text("jiho10101010", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14, color: Color(0xff999999)),),
                           ],
                         ),
                       ]
                     ),
-                    Icon(Icons.arrow_forward_ios, color: Colors.grey,),
+                    SvgPicture.asset('assets/icons/arrow2.svg'),
                   ],
                 ),
               ),
@@ -80,14 +98,14 @@ class Settings extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text("설정", style: TextStyle(fontWeight: FontWeight.w400, fontSize: 14),),
+                  Text("기본 설정", style: TextStyle(fontWeight: FontWeight.w500, color: Color(0xff777777),fontSize: 14),),
                 ],
               ),
               SizedBox(height: 6,),
               Container( //---------------------설정 탭 시작
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(14),
-                    color: Color(0xffFBFBFB)
+                    color: Color(0xffFAFAFA)
                 ),
 
                 padding: EdgeInsets.fromLTRB(15, 14, 12, 14),
@@ -99,12 +117,12 @@ class Settings extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              Icon(Icons.notifications, color: Colors.grey,),
+                              SvgPicture.asset('assets/icons/Group1653.svg'),
                               SizedBox(width: 7),
-                              Text("푸시 알림 설정", style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16),),
+                              Text("푸시 알림 설정", style: TextStyle(fontWeight: FontWeight.w500, color: Color(0xff555555),fontSize: 16)),
                             ],
                           ),
-                          Icon(Icons.arrow_forward_ios, color: Colors.grey,),
+                          SvgPicture.asset('assets/icons/arrow2.svg'),
                         ],
                       ),
                     ),
@@ -115,12 +133,12 @@ class Settings extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              Icon(Icons.notifications, color: Colors.grey,),
+                              SvgPicture.asset('assets/icons/Group1895.svg'),
                               SizedBox(width: 7),
-                              Text("친구 설정", style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16)),
+                              Text("친구 설정", style: TextStyle(fontWeight: FontWeight.w500, color: Color(0xff555555),fontSize: 16)),
                             ],
                           ),
-                          Icon(Icons.arrow_forward_ios, color: Colors.grey,),
+                          SvgPicture.asset('assets/icons/arrow2.svg'),
                         ],
                       ),
                     ),
@@ -131,14 +149,14 @@ class Settings extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text("보안", style: TextStyle(fontWeight: FontWeight.w400, fontSize: 14)),
+                  Text("보안", style: TextStyle(fontWeight: FontWeight.w500, color: Color(0xff777777),fontSize: 14),),
                 ],
               ),
               SizedBox(height: 6,),
               Container( //------------------보안 탭 시작
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(14),
-                    color: Color(0xffFBFBFB)
+                    color: Color(0xffFAFAFA)
                 ),
                 padding: EdgeInsets.fromLTRB(15, 14, 12, 14),
                 child: Column(
@@ -149,12 +167,12 @@ class Settings extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              Icon(Icons.notifications, color: Colors.grey,),
+                              SvgPicture.asset('assets/icons/qwer.svg'),
                               SizedBox(width: 7),
-                              Text("개인정보 및 약관", style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16)),
+                              Text("개인정보 및 약관", style: TextStyle(fontWeight: FontWeight.w500, color: Color(0xff555555),fontSize: 16)),
                             ],
                           ),
-                          Icon(Icons.arrow_forward_ios, color: Colors.grey,),
+                          SvgPicture.asset('assets/icons/arrow2.svg'),
                         ],
                       ),
                     ),
@@ -165,14 +183,14 @@ class Settings extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text("정보", style: TextStyle(fontWeight: FontWeight.w400, fontSize: 14)),
+                  Text("정보", style: TextStyle(fontWeight: FontWeight.w500, color: Color(0xff777777),fontSize: 14),),
                 ],
               ),
               SizedBox(height: 6,),
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(14),
-                    color: Color(0xffFBFBFB)
+                    color: Color(0xffFAFAFA)
                 ),
                 padding: EdgeInsets.fromLTRB(15, 14, 12, 14),
                 child: Column(
@@ -183,12 +201,12 @@ class Settings extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              Icon(Icons.notifications, color: Colors.grey,),
+                              SvgPicture.asset('assets/icons/asdf.svg'),
                               SizedBox(width: 7),
-                              Text("자주 묻는 질문", style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16)),
+                              Text("자주 묻는 질문", style: TextStyle(fontWeight: FontWeight.w500, color: Color(0xff555555),fontSize: 16)),
                             ],
                           ),
-                          Icon(Icons.arrow_forward_ios, color: Colors.grey,),
+                          SvgPicture.asset('assets/icons/arrow2.svg'),
                         ],
                       ),
                     ),
@@ -199,12 +217,12 @@ class Settings extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              Icon(Icons.notifications, color: Colors.grey,),
+                              SvgPicture.asset('assets/icons/zxcv.svg'),
                               SizedBox(width: 7),
-                              Text("츄징 평가 남기기", style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16)),
+                              Text("츄징 평가 남기기", style: TextStyle(fontWeight: FontWeight.w500, color: Color(0xff555555),fontSize: 16)),
                             ],
                           ),
-                          Icon(Icons.arrow_forward_ios, color: Colors.grey,),
+                          SvgPicture.asset('assets/icons/arrow2.svg'),
                         ],
                       ),
                     ),
@@ -215,12 +233,12 @@ class Settings extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              Icon(Icons.notifications, color: Colors.grey,),
+                              SvgPicture.asset('assets/icons/ic_name_of_icon_24px_6 1.svg'),
                               SizedBox(width: 7),
-                              Text("정보", style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16)),
+                              Text("정보", style: TextStyle(fontWeight: FontWeight.w500, color: Color(0xff555555),fontSize: 16)),
                             ],
                           ),
-                          Icon(Icons.arrow_forward_ios, color: Colors.grey,),
+                          SvgPicture.asset('assets/icons/arrow2.svg'),
                         ],
                       ),
                     ),
@@ -231,51 +249,18 @@ class Settings extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(14),
-                    color: Color(0xffFBFBFB),
+                    color: Color(0xffFAFAFA),
                 ),
                 width: double.infinity,
                 alignment: Alignment.center,
                 padding: EdgeInsets.fromLTRB(0, 13, 0, 13),
-                child: Text("로그아웃", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: Color(0xffFF5555)),),
+                child: Text("로그아웃", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Color(0xffFF5555)),),
               ),
             ],
           ),
         )
       ),
-      bottomNavigationBar: SizedBox(
-        height: 91,
-        child: Theme(
-          data: ThemeData(
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(14),
-                topRight: Radius.circular(14)
-            ),
-            child: BottomNavigationBar(
-              backgroundColor: Color(0xff111111),
-              type: BottomNavigationBarType.fixed,
-              showSelectedLabels: false,
-              showUnselectedLabels: false,
-              currentIndex: screenIndex,
-              items: [
-                BottomNavigationBarItem(icon: SvgPicture.asset('assets/icons/bottomBar1.svg'),label: ''),
-                BottomNavigationBarItem(icon: SvgPicture.asset('assets/icons/bottomBar2.svg'),label: ''),
-                BottomNavigationBarItem(icon: SvgPicture.asset('assets/icons/bottomBar3.svg'),label: ''),
-                BottomNavigationBarItem(icon: SvgPicture.asset('assets/icons/bottomBar4.svg'),label: ''),
-                BottomNavigationBarItem(icon: SvgPicture.asset('assets/icons/bottomBar5.svg'),label: '')
-              ],
-              // onTap: (value) {
-              //   setState(() {
-              //     screenIndex = value;
-              //   });
-              // },
-            ),
-          ),
-        ),
-      ),
+
     );
   }
 }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -20,6 +19,7 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       builder: (context, child){
         return MaterialApp(
+          theme: ThemeData(fontFamily: "AppleSDGothicNeo"),
           home: Friends_Setting(),
         );
       },
@@ -32,8 +32,25 @@ class Friends_Setting extends StatelessWidget {
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back_ios),
-        title: Text("친구 설정", style: TextStyle(color: Color(0xff777777)),),
+        leadingWidth: MediaQuery.of(context).size.width,
+        leading: Container(
+          padding: EdgeInsets.fromLTRB(20, 15.5, 0, 15.5),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SvgPicture.asset('assets/icons/back_btn3.svg'),
+              SizedBox(width: 10,),
+              Text(
+                "자주 묻는 질문",
+                style: TextStyle(
+                    color: Color(0xff777777),
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -43,16 +60,10 @@ class Friends_Setting extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(height: 40),
-              Row(
-                children: [
-                  Text("친구", style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400)),
-                ],
-              ),
-              SizedBox(height: 6,),
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(14),
-                  color: Color(0xffFBFBFB),
+                  color: Color(0xffFAFAFA),
                 ),
                 padding: EdgeInsets.fromLTRB(12, 13, 12, 13),
                 child: Row(
@@ -60,57 +71,23 @@ class Friends_Setting extends StatelessWidget {
                   children: [
                     Row(
                       children: [
+                        SizedBox(width: 17,),
                         SvgPicture.asset(
-                            'assets/icons/friends_setting1.svg',
+                          'assets/icons/frame556_1.svg',
                         ),
-                        SizedBox(width: 8),
-                        Text("차단된 사용자", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400)),
+                        SizedBox(width: 9),
+                        Text("문의하기", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
                       ],
                     ),
-                    Icon(Icons.arrow_forward_ios),
+                    SvgPicture.asset('assets/icons/arrow2.svg'),
                   ],
                 ),
               ),
-              SizedBox(height: 22,),
+              SizedBox(height: 18,),
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(14),
-                  color: Color(0xffFBFBFB),
-                ),
-                padding: EdgeInsets.fromLTRB(14, 12, 11, 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        SvgPicture.asset(
-                          'assets/icons/friends_setting2.svg',
-                        ),
-                        SizedBox(width: 8),
-                        Text("내 전화번호로 친구 찾기", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400)),
-                      ],
-                    ),
-                    SvgPicture.asset(
-                      'assets/icons/toggle.svg',
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 6,),
-              Row(
-                children: [
-                  SizedBox(width: 10,),
-                  Text(
-                      "다른 사람이 내 휴대전화 번호로 나를 찾을 수 있습니다.",
-                      style: TextStyle(color: Color(0xff777777), fontSize: 14, fontWeight: FontWeight.w400)
-                  ),
-                ],
-              ),
-              SizedBox(height: 22,),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(14),
-                  color: Color(0xffFBFBFB),
+                  color: Color(0xffFAFAFA),
                 ),
                 padding: EdgeInsets.fromLTRB(12, 13, 12, 13),
                 child: Row(
@@ -118,29 +95,19 @@ class Friends_Setting extends StatelessWidget {
                   children: [
                     Row(
                       children: [
+                        SizedBox(width: 17,),
                         SvgPicture.asset(
-                          'assets/icons/friends_setting3.svg',
+                          'assets/icons/frame556_2.svg',
                         ),
-                        SizedBox(width: 8),
-                        Text("연락처 동기화", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400)),
+                        SizedBox(width: 9),
+                        Text("자주 묻는 질문", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
                       ],
                     ),
-                    SvgPicture.asset(
-                      'assets/icons/toggle.svg',
-                    ),
+                    SvgPicture.asset('assets/icons/arrow2.svg'),
                   ],
                 ),
               ),
-              SizedBox(height: 6,),
-              Row(
-                children: [
-                  SizedBox(width: 10,),
-                  Text(
-                      "사용자님의 연락처에 접근해 친구를 추천합니다.",
-                      style: TextStyle(color: Color(0xff777777), fontSize: 14, fontWeight: FontWeight.w400)
-                  ),
-                ],
-              ),
+
             ],
           ),
         ),
@@ -179,6 +146,7 @@ class Friends_Setting extends StatelessWidget {
           ),
         ),
       ),
+
     );
   }
 }

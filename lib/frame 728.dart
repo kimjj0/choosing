@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       builder: (context, child){
         return MaterialApp(
+          theme: ThemeData(fontFamily: "AppleSDGothicNeo"),
           home: Friends_Setting(),
         );
       },
@@ -33,8 +34,25 @@ class Friends_Setting extends StatelessWidget {
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back_ios),
-        title: Text("개인정보 및 약관", style: TextStyle(color: Color(0xff777777)),),
+        leadingWidth: MediaQuery.of(context).size.width,
+        leading: Container(
+          padding: EdgeInsets.fromLTRB(20, 15.5, 0, 15.5),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SvgPicture.asset('assets/icons/back_btn3.svg'),
+              SizedBox(width: 10,),
+              Text(
+                "개인정보 및 약관",
+                style: TextStyle(
+                    color: Color(0xff777777),
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -46,11 +64,11 @@ class Friends_Setting extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  SizedBox(height: 40),
+                  SizedBox(height: 15),
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(14),
-                      color: Color(0xffFBFBFB),
+                      color: Color(0xffFAFAFA),
                     ),
                     padding: EdgeInsets.fromLTRB(12, 13, 12, 13),
                     child: Row(
@@ -63,10 +81,10 @@ class Friends_Setting extends StatelessWidget {
                               'assets/icons/frame556_2.svg',
                             ),
                             SizedBox(width: 9),
-                            Text("이용약관", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400)),
+                            Text("이용약관", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
                           ],
                         ),
-                        Icon(Icons.arrow_forward_ios),
+                        SvgPicture.asset('assets/icons/arrow2.svg'),
                       ],
                     ),
                   ),
@@ -74,7 +92,7 @@ class Friends_Setting extends StatelessWidget {
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(14),
-                      color: Color(0xffFBFBFB),
+                      color: Color(0xffFAFAFA),
                     ),
                     padding: EdgeInsets.fromLTRB(12, 13, 12, 13),
                     child: Row(
@@ -87,25 +105,25 @@ class Friends_Setting extends StatelessWidget {
                               'assets/icons/frame556_2.svg',
                             ),
                             SizedBox(width: 9),
-                            Text("개인정보 처리방침", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400)),
+                            Text("개인정보 처리방침", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
                           ],
                         ),
-                        Icon(Icons.arrow_forward_ios),
+                        SvgPicture.asset('assets/icons/arrow2.svg'),
                       ],
                     ),
                   ),
                 ],
               ),
-              Text("시발"),
+              SizedBox(height: 420,),
               Container(
                 width: double.infinity,
                 alignment: Alignment.center,
                 padding: EdgeInsets.fromLTRB(0, 13, 0, 13),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(14),
-                  color: Colors.blue,
+                  color: Color(0xffFAFAFA),
                 ),
-                child: Text("탈퇴하기", style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16, color: Color(0xff999999)),),
+                child: Text("탈퇴하기", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16, color: Color(0xff999999)),),
               ),
             ],
           ),

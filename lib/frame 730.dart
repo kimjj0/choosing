@@ -32,33 +32,41 @@ class No_Blocked_Users extends StatelessWidget {
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back_ios),
-        title: Text("차단된 사용자", style: TextStyle(color: Color(0xff777777)),),
+        leadingWidth: MediaQuery.of(context).size.width,
+        leading: Container(
+          padding: EdgeInsets.fromLTRB(20, 15.5, 0, 15.5),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SvgPicture.asset('assets/icons/back_btn3.svg'),
+              SizedBox(width: 10,),
+              Text(
+                "차단된 사용자",
+                style: TextStyle(
+                    color: Color(0xff777777),
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            SizedBox(height: 40,),
+            SizedBox(height: 16,),
             Row(
               children: [
                 SizedBox(width: 20,),
                 Text(
                   "차단된 사용자 (0)",
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+                  style: TextStyle(color: Color(0xff333333),fontSize: 14, fontWeight: FontWeight.w500),
                 ),
               ],
             ),
-            SizedBox(height: 24,),
-            Row(
-              children: [
-                SizedBox(width: 20,),
-                Text(
-                  "차단된 사용자가 없습니다.",
-                  style: TextStyle(color: Color(0xffDDDDDD), fontSize: 20, fontWeight: FontWeight.w400),
-                ),
-              ],
-            )
+
           ],
         ),
       ),
